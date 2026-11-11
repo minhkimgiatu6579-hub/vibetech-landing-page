@@ -1,0 +1,104 @@
+/* Global styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { font-family: Arial, Helvetica, sans-serif; color: #111827; background-color: #ffffff; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #6366f1; outline-offset: 4px; }
+.skip-link { position: fixed; top: -60px; left: 16px; z-index: 200; padding: 12px; background: white; }
+.skip-link:focus { top: 10px; }
+
+/* Header and navigation */
+.site-header { position: sticky; top: 0; z-index: 100; background-color: white; border-bottom: 1px solid #e9edf2; transition: background-color 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease; }
+.navigation { display: flex; align-items: center; justify-content: space-between; max-width: 1240px; min-height: 80px; padding: 0 32px; margin: auto; gap: 24px; }
+.brand { font-size: 27px; font-weight: 800; letter-spacing: -1.2px; white-space: nowrap; }
+.brand span { color: #4f46e5; }
+.brand .brand-dot { color: #111827; }
+.menu { display: flex; align-items: center; gap: 34px; list-style: none; }
+.menu a { display: block; padding: 12px 0; font-size: 14px; font-weight: 600; color: #596273; transition: color 0.25s ease; }
+.menu .active { color: #4f46e5; }
+.nav-actions { display: flex; gap: 14px; }
+.icon-button { display: grid; place-items: center; width: 36px; height: 40px; border: 0; background: transparent; color: #111827; transition: color 0.25s ease; }
+.icon-button svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Hero section */
+.intro { text-align: center; padding: 68px 24px 62px; }
+.intro h1 { font-size: clamp(32px, 3.1vw, 48px); font-weight: 800; line-height: 1.16; letter-spacing: -1.8px; }
+.intro h1 span { color: #4f46e5; }
+.intro p { max-width: 620px; margin: 20px auto 0; color: #6b7280; font-size: 16px; line-height: 1.75; }
+
+/* Product section */
+.shop-section { background: #f8fafc; border-top: 1px solid #f0f2f5; }
+.shop-container { max-width: 1240px; margin: auto; padding: 40px 32px 56px; }
+.items-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+
+/* Product cards */
+.item { min-width: 0; display: flex; flex-direction: column; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.item-photo { overflow: hidden; position: relative; background-color: #f1f5f9; aspect-ratio: 1.25; }
+.item-photo img { display: block; width: 100%; height: 100%; object-fit: contain; transition: transform 0.3s ease; }
+.tag { position: absolute; top: 14px; left: 14px; z-index: 1; padding: 5px 10px; border-radius: 5px; font-size: 10px; line-height: 1.2; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.tag-hot { background: #fee2e2; color: #b91c1c; }
+.tag-sale { background: #ede9fe; color: #6d28d9; }
+.tag-new { background: #dcfce7; color: #15803d; }
+.item-details { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 20px; }
+.item-category { color: #747c8c; text-transform: uppercase; letter-spacing: 1px; font-size: 10px; line-height: 1.5; font-weight: 600; }
+.item-name { margin: 8px 0 12px; font-size: 15px; line-height: 1.45; min-height: 44px; font-weight: 600; overflow-wrap: anywhere; }
+.item-price { color: #4f46e5; font-size: 19px; font-weight: 700; margin-top: auto; margin-bottom: 18px; }
+.cart-button { width: 100%; min-height: 40px; padding: 10px 8px; border: 0; border-radius: 6px; background: #111827; color: white; font-size: 12px; font-weight: 600; transition: background-color 0.25s ease; }
+
+/* Hover effects */
+.site-header:hover { background-color: rgba(255, 255, 255, 0.85); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.menu a:hover, .icon-button:hover { color: #4f46e5; }
+.item:hover { transform: translateY(-6px); box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12); }
+.item:hover .item-photo img { transform: scale(1.06); }
+.cart-button:hover { background-color: #4f46e5; }
+
+/* Footer */
+.site-footer { padding: 30px 20px; border-top: 1px solid #e5e7eb; text-align: center; color: #6b7280; font-size: 12px; line-height: 1.7; }
+
+/* Responsive media queries */
+@media (max-width: 1024px) {
+  .navigation { padding: 0 24px; min-height: 72px; }
+  .intro { padding: 52px 24px 46px; }
+  .intro h1 { font-size: 40px; }
+  .shop-container { padding: 28px 24px 40px; }
+  .items-grid { gap: 16px; }
+  .item-details { padding: 16px; }
+  .item-name { font-size: 14px; min-height: 61px; }
+}
+@media (max-width: 768px) {
+  .navigation { gap: 16px; padding: 0 20px; }
+  .brand { font-size: 25px; }
+  .menu { gap: 22px; }
+  .nav-actions { gap: 6px; }
+  .items-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .item-name { min-height: 41px; }
+  .intro h1 { font-size: 36px; }
+}
+@media (max-width: 480px) {
+  html { scroll-padding-top: 124px; }
+  .navigation { flex-wrap: wrap; padding: 12px 16px 0; gap: 8px; }
+  .brand { font-size: 25px; }
+  .nav-actions { margin-left: auto; }
+  .menu { order: 3; width: 100%; justify-content: space-between; gap: 12px; }
+  .menu a { font-size: 12px; padding: 11px 0 14px; }
+  .intro { padding: 36px 20px; }
+  .intro h1 { font-size: 32px; letter-spacing: -1.2px; }
+  .intro p { font-size: 14px; line-height: 1.7; margin-top: 16px; }
+  .shop-container { padding: 20px 16px 32px; }
+  .items-grid { gap: 12px; }
+  .item { border-radius: 9px; }
+  .item-details { padding: 12px; }
+  .item-category { font-size: 10px; letter-spacing: 0.65px; }
+  .item-name { font-size: 12px; min-height: 53px; margin: 7px 0 10px; }
+  .item-price { font-size: 17px; margin-bottom: 13px; }
+  .cart-button { font-size: 11px; }
+  .tag { top: 9px; left: 9px; font-size: 10px; padding: 4px 7px; }
+  .site-footer { padding: 24px 20px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .item:hover, .item:hover .item-photo img { transform: none; }
+}
